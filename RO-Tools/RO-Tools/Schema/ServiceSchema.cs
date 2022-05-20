@@ -8,7 +8,7 @@ namespace RO_Tools.Schema
         public ServiceSchema(IServiceProvider serviceProvider) : base(serviceProvider)
         {
             Query = serviceProvider.GetService<SearchQuery>();
-            Mutation = serviceProvider.GetService<MutationQuery>();
+            //Mutation = serviceProvider.GetService<MutationQuery>();
         }     
     }
 }
