@@ -11,7 +11,7 @@ namespace RO_Tools.Services
             _ostSettingsRepository = repository;
         }
 
-        public OstSettings OstSettingsForRC(string customerSet) => _ostSettingsRepository.OstSettingsForRC(customerSet);
+        public async Task<Products> OstSettingsForRC(string customerSet) => await _ostSettingsRepository.OstSettingsForRCAsync(customerSet);
         public OstSettings OstSettingsForIDRC(Guid id) => _ostSettingsRepository.OstSettingsForIDRC(id);
 
         public List<OstSettings> OstSettingsAll() => _ostSettingsRepository.OstSettingsAll();

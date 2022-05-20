@@ -14,6 +14,10 @@ namespace RO_Tools.Schema.Queries
             Field<OstSettingsType>(name: "OstSettings", arguments:
             new QueryArguments(new QueryArgument<GuidGraphType> { Name = "id" }),
             resolve: context => _ostSettingsService.OstSettingsForIDRC(context.GetArgument<Guid>("id")));
+
+            Field<ProductsType>(name: "Products", arguments:
+            new QueryArguments(new QueryArgument<StringGraphType> { Name = "id" }),
+            resolve: context => _ostSettingsService.OstSettingsForRC(context.GetArgument<string>("id")));
         }
     }
 }
