@@ -10,4 +10,10 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Buyer.EQuote.Diagnostics.Common\Buyer.EQuote.Diagnostics.Common.csproj" />
+    <ProjectReference Include="..\Buyer.EQuote.Diagnostics.Entities\Buyer.EQuote.Diagnostics.Entities.csproj" />
+    <ProjectReference Include="..\Buyer.EQuote.Diagnostics.Repositories\Buyer.EQuote.Diagnostics.Repositories.csproj" />
+  </ItemGroup>
+
 </Project>
