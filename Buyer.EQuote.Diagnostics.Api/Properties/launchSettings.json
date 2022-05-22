@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "RO_Tools": {
+    "Buyer.EQuote.Diagnostics.Api": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
@@ -22,8 +22,8 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "graphql",
-      //"launchUrl": "swagger",
+      //"launchUrl": "graphql",
+      "launchUrl": "swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

@@ -2,22 +2,31 @@
 using GraphQL.Types;
 using Microsoft.AspNetCore.Mvc;
 using RO_Tools.Models;
+using System.Diagnostics.CodeAnalysis;
+using System.Text;
 
 namespace Buyer.EQuote.Diagnostics.Api.Controllers
 {
-    [ApiController, Route("api/gql")]
-    public class GraphQLController : ControllerBase
+    [ExcludeFromCodeCoverage]
+    [ApiController, Route("api/diagnostics/gql")]
+    public class DiagnosticsGQLController : ControllerBase
     {
         private readonly ISchema _schema;
         private readonly IDocumentExecuter _executer;
-        public GraphQLController(ISchema schema, IDocumentExecuter executer)
+        private readonly IConfiguration _configuration;
+
+        public DiagnosticsGQLController(
+            ISchema schema, 
+            IDocumentExecuter executer,
+            IConfiguration configuration)
         {
             _schema = schema;
             _executer = executer;
+            _configuration = configuration;
         }
 
         [HttpPost]
-        public async Task<ExecutionResult> Post(GqlQuery query)
+        public async Task<ExecutionResult> PostQuery(GqlQuery query)
         {
             var result = await _executer.ExecuteAsync(_ => {
                 _.Schema = _schema;

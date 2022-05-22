@@ -45,8 +45,8 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 
-app.UseGraphiQl("/graphql", "/api/gql");
-app.UseGraphQL<ServiceSchema>("/api/gql");
+app.UseGraphiQl("/graphql", "/api/diagnostics/gql");
+app.UseGraphQL<ServiceSchema>("/api/diagnostics/gql");
 
 app.UseHttpsRedirection();
 app.UseRouting();
