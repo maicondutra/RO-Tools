@@ -3,7 +3,7 @@ using GraphQL.Types;
 using Microsoft.AspNetCore.Mvc;
 using RO_Tools.Models;
 
-namespace RO_Tools.Controllers
+namespace Buyer.EQuote.Diagnostics.Api.Controllers
 {
     [ApiController, Route("api/gql")]
     public class GraphQLController : ControllerBase
