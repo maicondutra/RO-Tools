@@ -1,18 +1,17 @@
-﻿using GraphQL.Types;
-using RO_Tools.Models;
+﻿using Buyer.EQuote.Diagnostics.Entities.Models;
+using GraphQL.Types;
 
-namespace RO_Tools.Schema.Types
+namespace Buyer.EQuote.Diagnostics.Api.Schema.Types
 {
     public class ProductsType : ObjectGraphType<Products>
     {
         public ProductsType()
         {
             this.Name = "Products";
-            Field(_ => _.id).Description("Products id");
-            Field(_ => _.price).Description("Price");
-            Field(_ => _.noGop).Description("NoGop");
-            Field(_ => _.name).Description("Name");
-
+            Field(_ => _.Id).Description("Products id");
+            Field(_ => _.Price).Description("Price");
+            Field(_ => _.NoGop).Description("NoGop");
+            Field(_ => _.Name).Description("Name");
         }
     }
 }

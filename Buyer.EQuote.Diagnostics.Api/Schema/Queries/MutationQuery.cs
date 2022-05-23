@@ -1,6 +1,6 @@
 ﻿using GraphQL.Types;
 
-namespace RO_Tools.Schema.Queries
+namespace Buyer.EQuote.Diagnostics.Api.Schema.Queries
 {
     public class MutationQuery : ObjectGraphType
     {

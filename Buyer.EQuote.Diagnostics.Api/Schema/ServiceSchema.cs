@@ -1,7 +1,7 @@
-﻿using RO_Tools.Schema.Queries;
+﻿using Buyer.EQuote.Diagnostics.Api.Schema.Queries;
 using GQLTypes = GraphQL.Types;
 
-namespace RO_Tools.Schema
+namespace Buyer.EQuote.Diagnostics.Api.Schema
 {
     public class ServiceSchema : GQLTypes.Schema, GQLTypes.ISchema
     {

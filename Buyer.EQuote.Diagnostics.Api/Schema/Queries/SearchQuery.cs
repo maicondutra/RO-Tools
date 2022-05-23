@@ -1,23 +1,28 @@
-﻿using GraphQL;
+﻿using Buyer.EQuote.Diagnostics.Api.Schema.Types;
+using Buyer.EQuote.Diagnostics.Domain.Services;
+using GraphQL;
 using GraphQL.Types;
-using RO_Tools.Schema.Types;
-using RO_Tools.Services;
 
-namespace RO_Tools.Schema.Queries
+namespace Buyer.EQuote.Diagnostics.Api.Schema.Queries
 {
     public class SearchQuery : ObjectGraphType
     {
-        public SearchQuery(OstSettingsService _ostSettingsService)
+
+        private readonly IOstSettingsService _ostSettingsService;
+
+        public SearchQuery(IOstSettingsService ostSettingsService)
         {
-            Field<ListGraphType<OstSettingsType>>(name: "OstSettingsAll", resolve: context => _ostSettingsService.OstSettingsAll());
+            _ostSettingsService = ostSettingsService;
 
-            Field<OstSettingsType>(name: "OstSettings", arguments:
-            new QueryArguments(new QueryArgument<GuidGraphType> { Name = "id" }),
-            resolve: context => _ostSettingsService.OstSettingsForIDRC(context.GetArgument<Guid>("id")));
+            this.FieldQuery();
+        }
 
+        private void FieldQuery()
+        {
             Field<ProductsType>(name: "Products", arguments:
             new QueryArguments(new QueryArgument<StringGraphType> { Name = "id" }),
-            resolve: context => _ostSettingsService.OstSettingsForRC(context.GetArgument<string>("id")));
+            resolve: context => _ostSettingsService.OstSettingsForRCAsync(context.GetArgument<string>("id")));
         }
+
     }
 }

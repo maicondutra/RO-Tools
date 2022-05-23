@@ -1,15 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Net;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using System.Net;
+using Microsoft.Extensions.Logging;
 
-namespace RO_Tools.Filters
+namespace Buyer.EQuote.Diagnostics.Common.Exceptions
 {
     [AttributeUsage(AttributeTargets.All)]
-    public sealed class AppExceptionFilterAttribute : ExceptionFilterAttribute
+    public sealed class AppFilterAttributeException : ExceptionFilterAttribute
     {
         private readonly ILogger<Exception> _Logger;
 
-        public AppExceptionFilterAttribute(ILogger<Exception> logger)
+        public AppFilterAttributeException(ILogger<Exception> logger)
         {
             _Logger = logger;
         }

@@ -1,9 +1,8 @@
-﻿using GraphQL;
+﻿using Buyer.EQuote.Diagnostics.Common.Models;
+using GraphQL;
 using GraphQL.Types;
 using Microsoft.AspNetCore.Mvc;
-using RO_Tools.Models;
 using System.Diagnostics.CodeAnalysis;
-using System.Text;
 
 namespace Buyer.EQuote.Diagnostics.Api.Controllers
 {
@@ -31,7 +30,7 @@ namespace Buyer.EQuote.Diagnostics.Api.Controllers
             var result = await _executer.ExecuteAsync(_ => {
                 _.Schema = _schema;
                 _.Query = query.Query;
-                _.Inputs = query.Vars?.ToInputs();
+                _.Inputs = query.Variables?.ToInputs();
             });
             return result;
         }
