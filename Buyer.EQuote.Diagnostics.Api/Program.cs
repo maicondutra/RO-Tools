@@ -28,7 +28,14 @@ builder.Services.ConfigureCommonServices();
 builder.Services.ConfigureDomainServices(builder.Environment, builder.Configuration);
 
 //TODO: Quando migrado para a versão V5 do GraphQL, esta dando erro no IDocumentWriter que só funciona na versão GraphQL V4
-builder.Services.AddGraphQL().AddSystemTextJson(cfg => { }, serializerSettings => { }).AddDataLoader().AddGraphTypes(typeof(ServiceSchema));
+//builder.Services.AddGraphQL().AddSystemTextJson(cfg => { }, serializerSettings => { }).AddDataLoader().AddGraphTypes(typeof(ServiceSchema));
+    builder.Services.AddGraphQL(options =>
+    {
+        options.EnableMetrics = false;     
+    
+    }).AddSystemTextJson(deserializerSettings => { }, serializerSettings => { })
+        .AddDataLoader()
+        .AddGraphTypes(typeof(ServiceSchema));
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
