@@ -9,7 +9,6 @@ namespace Buyer.EQuote.Diagnostics.Common.Exceptions
     public sealed class AppFilterAttributeException : ExceptionFilterAttribute
     {
         private readonly ILogger<Exception> _Logger;
-
         public AppFilterAttributeException(ILogger<Exception> logger)
         {
             _Logger = logger;

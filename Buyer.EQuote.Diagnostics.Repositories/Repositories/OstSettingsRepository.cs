@@ -22,13 +22,12 @@ namespace Buyer.EQuote.Diagnostics.Repositories.Repositories
 
                 if (response.IsSuccessStatusCode)
                 {  
-                    var pto = await response.Content.ReadAsStringAsync();
-                    var produto = JsonConvert.DeserializeObject<List<Products>>(pto);
-                    var prot = produto.FirstOrDefault(a => a.Id.Equals(int.Parse(rcNumber)));
-                    return prot;
+                    var produtoDB = await response.Content.ReadAsStringAsync();
+                    var produtoJD = JsonConvert.DeserializeObject<List<Products>>(produtoDB);
+                    var produtoRC = produtoJD.FirstOrDefault(a => a.Id.Equals(int.Parse(rcNumber)));
+                    return produtoRC;
                 }
                 return new Products();
-
             }
         }
     }

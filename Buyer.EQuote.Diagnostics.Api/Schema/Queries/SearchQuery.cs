@@ -7,7 +7,6 @@ namespace Buyer.EQuote.Diagnostics.Api.Schema.Queries
 {
     public class SearchQuery : ObjectGraphType
     {
-
         private readonly IOstSettingsService _ostSettingsService;
 
         public SearchQuery(IOstSettingsService ostSettingsService)

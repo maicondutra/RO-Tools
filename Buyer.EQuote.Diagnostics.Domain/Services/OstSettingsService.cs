@@ -3,7 +3,6 @@ using Buyer.EQuote.Diagnostics.Repositories.Repositories;
 
 namespace Buyer.EQuote.Diagnostics.Domain.Services
 {
-
     public interface IOstSettingsService
     {
         Task<Products> OstSettingsForRCAsync(string customerSet);
